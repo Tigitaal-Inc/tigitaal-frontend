@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tigitaal-frontend/static/css/main.0348465a.css",
+    "main.js": "/tigitaal-frontend/static/js/main.e6edccfb.js",
+    "static/js/787.0575cc1b.chunk.js": "/tigitaal-frontend/static/js/787.0575cc1b.chunk.js",
+    "index.html": "/tigitaal-frontend/index.html",
+    "main.0348465a.css.map": "/tigitaal-frontend/static/css/main.0348465a.css.map",
+    "main.e6edccfb.js.map": "/tigitaal-frontend/static/js/main.e6edccfb.js.map",
+    "787.0575cc1b.chunk.js.map": "/tigitaal-frontend/static/js/787.0575cc1b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0348465a.css",
+    "static/js/main.e6edccfb.js"
+  ]
+}
