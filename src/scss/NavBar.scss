@@ -1,0 +1,225 @@
+@import "variables";
+@import "mixins";
+
+.NavBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: $primary-dark-bg;
+    color: white;
+
+    * {
+        margin: 0;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        gap: 5px;
+
+        li {
+            position: relative;
+            background-color: none;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 0px;
+            transition: all .2s ease;
+
+            // &:hover, &:focus {
+            //     background-color: #26292B;
+            //     border-color: #3A3F42;
+            // }
+            .NBI-abs {
+                position: absolute;
+            }
+
+            a {
+                height: calc(100% + 10px);
+                padding: 0 16px;
+                border-radius: inherit;
+                font-size: 14px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                border: 1px solid rgba(0, 0, 0, 0);
+                color: white;
+                text-decoration: none;
+                gap: 5px;
+                transition: all .2s ease;
+
+                svg {
+                    margin: 0;
+                    width: 17px;
+                    opacity: 0.7;
+                }
+            }
+
+            a:not(.NavbarButtonA) {
+                &:hover, &:focus {
+                    background-color: #26292B;
+                    border-color: #3A3F42;
+                    outline: none;
+                }
+            }
+
+            .NavbarButtonA {
+                // background-color: red;
+                padding: 0 !important;
+                button {
+                    height: 100%;
+                    width: 100%;
+                    padding: 0 1rem;
+                    cursor: pointer;
+                    border: 1px solid rgba(0, 0, 0, 0);
+                    background-color: #ECEDEE;
+                    border-radius: 5px;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 500;
+                    letter-spacing: -.006rem;
+                    line-height: 1.57;
+                    transition: all .2s ease;
+
+                    &:hover, &:focus {
+                        background-color: #26292B;
+                        border-color: #3A3F42;
+                        outline: none;
+                        color: #ECEDEE;
+                    }
+                }
+            }
+        }
+
+        .NBILI {
+            padding: 0 !important;
+            input {
+                background-color: $primary-dark-bg;
+                padding: 0px 36px;
+                height: 32px;
+                max-width: 160px;
+                border: 1px solid #3a3f42;
+                border-radius: 6px;
+                font-weight: 500;
+                font-family: 'Inter', sans-serif !important;
+                font-size: 1rem;
+                color: $primary-white-text;
+                padding-left: 40px !important;
+                transition: all .2s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: #52A9FF;
+                    padding-right: auto !important;
+                }
+
+                &:focus + svg {
+                    opacity: 0;
+                }
+            }
+
+            .NBI-abs-1 {
+                left: 10px;
+                top: calc(50% + 1px);
+                transform: translateY(-50%);
+                color: #787f85 !important;
+                background-color: $primary-dark-bg !important;
+                svg {
+                    width: 20px !important;
+                }
+                
+            }
+
+            .NBI-abs-2 {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: all .2s ease;
+            }
+        }
+
+        .NavDropdownLI {
+            position: relative;
+
+
+            .NavDropdown {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: calc(100% + 20px);
+                opacity: 0;
+                height: fit-content;
+                width: 500px;
+                pointer-events: none;
+                transition: all .2s ease;
+                border-radius: 5px;
+
+
+                .NavDropdownContent {
+                    background-color: #1A1D1E;
+                    border: 1px solid #3A3F42;
+                    height: 100%;
+                    width: 100%;
+                    margin-top: 15px;
+                    border-radius: inherit;
+                    padding: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    // justify-content: center;
+                    align-items: flex-start;
+
+                    * {
+                        margin: 0;
+                    }
+
+                    a {
+                        width: calc(50% - 20px);
+                        padding: 20px 10px;
+                        height: fit-content;
+                        border: none !important;
+
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            // background-color: red;
+                            width: 100%;
+                            gap: 10px;
+
+                            p {
+                                color: #9BA1A6;
+                                max-width: 90%;
+
+                                span {
+                                    font-size: 12px;
+                                    color: $primary-yellow;
+                                }
+                            }
+
+                            p:first-child {
+                                color: #ECEDEE;
+                                font-size: 16px;
+                            }
+                        }
+
+                        &:hover {
+                            border-color: none !important;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .NavDropdown {
+                    top: 100%;
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+        }
+    }
+}
