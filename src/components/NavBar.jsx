@@ -1,15 +1,34 @@
 import React from "react";
 import { ReactDOM, useEffect, useState } from "react";
-import { Search, ChevronDown } from "react-feather";
+import { Search, ChevronDown, Menu, X } from "react-feather";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ updatehamburgerstate, hasborder }) => {
+
+    const [menuToggled, setMenuToggled] = useState(true);
+
+    function updateMenu(state) {
+        setMenuToggled(state)
+        updatehamburgerstate(!state);
+    }
+
     return (
         <>
-            <nav className="NavBar">
-                <h1 className="NavBarTitle">
+
+        {/* Menu */}
+            <nav className="NavBar" style={ {borderBottom: hasborder ? '1px solid #3a3f42' : 'none', paddingTop: hasborder ? '14.5px' : '15px', paddingBottom: hasborder ? '14.5px' : '15px'} }>
+                {/* Main Logo */}
+                <Link  className="NavBarTitle" style={{ color: 'white', textDecoration: 'none' }} to="/">
+                <h1>
                     Tigitaal
+                </h1>   
+                </Link>
+                {/* Minified Logo */}
+                <Link  className="NavBarTitle2" style={{ color: 'white', textDecoration: 'none' }}  to="/">
+                <h1>
+                    T
                 </h1>
+                </Link>
 
                 <ul>
                     <li className="NBILI">
@@ -19,10 +38,10 @@ const NavBar = () => {
                         </svg>
                         <div className="NBI-abs-1 NBI-abs"><Search /></div>
                         {/* <div className="NBI-abs-2 NBI-abs">/</div> */}
-                        </li>
+                    </li>
 
                     <li className="NavDropdownLI">
-                        <Link to="/products">Products <ChevronDown /></Link>
+                        <Link to="/products" className="navLink">Products <ChevronDown /></Link>
                         <div className="NavDropdown">
                             <div className="NavDropdownContent">
                                 <Link to="/products/publishing-platform">
@@ -65,7 +84,7 @@ const NavBar = () => {
                         </div>
                     </li>
                     <li className="NavDropdownLI">
-                        <Link to="/developers">Developers <ChevronDown /></Link>
+                        <Link to="/developers"  className="navLink">Developers <ChevronDown /></Link>
                         <div className="NavDropdown">
                             <div className="NavDropdownContent">
                                 <Link to="/developers/tigitaal-api">
@@ -89,22 +108,39 @@ const NavBar = () => {
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <Link to="/community">Community</Link>
+                    <li className="NavDropdownLI">
+                        <Link to="/tools"  className="navLink">Tools <ChevronDown /></Link>
+                        <div className="NavDropdown">
+                            <div className="NavDropdownContent">
+                                <Link to="/tools/value-estimator/website">
+                                    <div>
+                                        <p>Website Value Estimator</p>
+                                        <p>Estimate how much your site is worth</p>
+                                    </div>
+                                </Link>
+                                <Link to="/tools/value-estimator/mcserver">
+                                    <div>
+                                        <p>Minecraft Server Value</p>
+                                        <p>Estimate your Minecraft Server's value.</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <Link to="/pricing">Pricing</Link>
+                        <Link to="/pricing"  className="navLink">Pricing</Link>
                     </li>
                     <li>
-                        <Link to="/discover">Discover</Link>
+                        <Link to="/discover"  className="navLink">Discover</Link>
                     </li>
                     <li>
                         <Link to="/signup" className="NavbarButtonA"><button>Sign Up</button></Link>
                     </li>
                     <li>
-                        <Link to="/login">Log In</Link>
+                        <Link to="/login"  className="navLink">Log In</Link>
                     </li>
                 </ul>
+                {menuToggled ? <Menu className="NavBarMenuActivate NavBarMenu" onClick={e => updateMenu(false)} id={menuToggled ? "nav-active" : "nav-inactive"} /> : <X className="NavBarMenuDeactivate NavBarMenu" onClick={e => updateMenu(true)}/>}
             </nav>
         </>
     );

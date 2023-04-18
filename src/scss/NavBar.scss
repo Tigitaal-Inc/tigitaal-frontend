@@ -8,6 +8,12 @@
     padding: 15px 50px;
     background-color: $primary-dark-bg;
     color: white;
+    min-height: 50px;
+
+
+    .NavBarMenu, .NavBarTitle2 {
+        display: none;
+    }
 
     * {
         margin: 0;
@@ -57,6 +63,7 @@
                     margin: 0;
                     width: 17px;
                     opacity: 0.7;
+                    transition: all .2s ease;
                 }
             }
 
@@ -65,6 +72,10 @@
                     background-color: #26292B;
                     border-color: #3A3F42;
                     outline: none;
+
+                    svg {
+                        transform: rotate(-90deg) !important;
+                    }
                 }
             }
 
@@ -84,6 +95,7 @@
                     letter-spacing: -.006rem;
                     line-height: 1.57;
                     transition: all .2s ease;
+                    color: #1A1D1E;
 
                     &:hover, &:focus {
                         background-color: #26292B;
@@ -100,6 +112,7 @@
             input {
                 background-color: $primary-dark-bg;
                 padding: 0px 36px;
+                width: 100%;
                 height: 32px;
                 max-width: 160px;
                 border: 1px solid #3a3f42;
@@ -148,6 +161,7 @@
 
 
             .NavDropdown {
+                z-index: 9999;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
@@ -160,24 +174,31 @@
                 border-radius: 5px;
 
 
+
                 .NavDropdownContent {
-                    background-color: #1A1D1E;
+                    background-color: rgba(26, 29, 30, 0.8);
+                    backdrop-filter: blur(20px);
                     border: 1px solid #3A3F42;
                     height: 100%;
                     width: 100%;
                     margin-top: 15px;
                     border-radius: inherit;
+                    transition: all 0s !important;
                     padding: 20px;
                     display: flex;
                     flex-wrap: wrap;
                     // justify-content: center;
                     align-items: flex-start;
+                    // pointer-events: none;
+                    // visibility: hidden;
+                    visibility: visible;
 
                     * {
                         margin: 0;
                     }
 
                     a {
+                        visibility: visible;
                         width: calc(50% - 20px);
                         padding: 20px 10px;
                         height: fit-content;
@@ -218,8 +239,47 @@
                     top: 100%;
                     opacity: 1;
                     pointer-events: all;
+
+                }
+
+                .navLink {
+                    background-color: #26292B;
+                    border-color: #3A3F42;
+                    outline: none;
+                    color: #ECEDEE;
+
+                    svg {
+                        transform: rotate(-90deg);
+                    }
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 1209px) {
+    .NavBar {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 1131px) {
+    .NavBar {
+        padding-left: 20px;
+        padding-right: 20px;
+        ul, .NavBarTitle {
+            display: none;
+        }
+
+        .NavBarMenu, .NavBarTitle2, .HamburgerMenuDropdown {
+            display: block !important;
+        }
+
+
+        .NavBarMenu {
+            opacity: 0.7;
+            width: 23px;
         }
     }
 }

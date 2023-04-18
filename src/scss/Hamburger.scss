@@ -1,0 +1,107 @@
+@import "variables";
+@import "mixins";
+
+.Hamburger {
+    min-height: calc(100dvh - 80px);
+    background-color: $primary-dark-bg;
+
+
+    .HBLinks {
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-weight: 500;
+            opacity: 0.9;
+
+            svg {
+                width: 17px;
+                opacity: 0.4;
+            }
+        }
+    }
+
+    .HBBF {
+        background-color: #9c4e00;
+        margin-top: 0;
+        color: white;
+        border-color: #9c4e00;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+    button {
+        background-color: #202425;
+        color: white;
+        font-family: 'Inter', sans-serif !important;
+        display: block;
+        margin: 0 auto;
+        width: calc(100% - 55px + 36px);
+        padding: 10px 0;
+        margin-top: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        border: 1px solid #3a3f42;
+    }
+
+    .HBDivider {
+        width: 100%;
+        height: 1px;
+        background-color: #313538;
+        margin: 25px 0;
+    }
+
+    .HBI {
+        padding: 0 !important;
+        position: relative;
+       display: flex;
+       justify-content: center;
+            input.HamBurgerInput {
+                background-color: #1a1d1e;
+                padding: 0 !important;
+                padding-left: 36px !important;
+                width: calc(100% - 55px);
+                height: 36px;
+                border: 1px solid #3a3f42;
+                border-radius: 6px;
+                font-weight: 500;
+                font-family: 'Inter', sans-serif !important;
+                font-size: 1rem;
+                color: $primary-white-text;
+                transition: all .2s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: #52A9FF;
+                    padding-right: auto !important;
+                }
+
+                &:focus + svg {
+                    opacity: 0;
+                }
+            }
+
+            .NBI-abs-1 {
+                left: 20px;
+                top: calc(50% + 1px);
+                transform: translateY(-50%);
+                position: absolute;
+                color: #787f85 !important;
+                svg {
+                    width: 18px !important;
+                }
+                
+            }
+    }
+}
